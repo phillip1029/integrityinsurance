@@ -5,12 +5,13 @@ import { dictionary, localePath } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Medicare 保险咨询 | Integrity Insurance LLC",
-  description: "Integrity Insurance LLC 提供 Medicare Advantage、Supplement 和 Part D 咨询。",
+  title: "Medicare Insurance Guidance | Integrity Insurance LLC",
+  description:
+    "Medicare Advantage, Medicare Supplement, and Part D plan guidance from Integrity Insurance LLC.",
 };
 
-export default function ZhMedicarePage() {
-  const locale = "zh";
+export default function MedicarePage() {
+  const locale = "en";
   const t = dictionary[locale];
 
   return (

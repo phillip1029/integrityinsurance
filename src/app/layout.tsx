@@ -15,25 +15,25 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.theintegrityinsurance.com"),
   title: {
-    default: "Integrity Insurance LLC | Medicare and Marketplace Guidance",
+    default: "Integrity Insurance LLC | Medicare 与 Marketplace 健康保险咨询",
     template: "%s",
   },
   description:
-    "Integrity Insurance LLC helps clients compare Medicare, Marketplace health insurance, and life insurance options.",
+    "Integrity Insurance LLC 提供 Medicare、Marketplace 健康保险和人寿保险咨询。",
   openGraph: {
     title: "Integrity Insurance LLC",
     description:
-      "Licensed Medicare and Marketplace health insurance guidance from Integrity Insurance LLC.",
+      "Integrity Insurance LLC 提供 Medicare、Marketplace 健康保险和人寿保险咨询。",
     url: "https://www.theintegrityinsurance.com",
     siteName: "Integrity Insurance LLC",
-    locale: "en_US",
+    locale: "zh_CN",
     type: "website",
   },
   alternates: {
     canonical: "/",
     languages: {
-      en: "/",
-      "zh-CN": "/zh",
+      en: "/en",
+      "zh-CN": "/",
     },
   },
 };
@@ -45,7 +45,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="zh-CN"
       className={`${geistSans.variable} ${geistMono.variable} h-full`}
       data-scroll-behavior="smooth"
     >

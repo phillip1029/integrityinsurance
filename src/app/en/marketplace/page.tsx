@@ -4,12 +4,13 @@ import { dictionary } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Marketplace 健康保险 | Integrity Insurance LLC",
-  description: "为个人和家庭提供 ACA Marketplace 健康保险咨询。",
+  title: "Marketplace Health Insurance | Integrity Insurance LLC",
+  description:
+    "ACA Marketplace health insurance guidance for individuals and families.",
 };
 
-export default function ZhMarketplacePage() {
-  const locale = "zh";
+export default function MarketplacePage() {
+  const locale = "en";
   const t = dictionary[locale];
 
   return (

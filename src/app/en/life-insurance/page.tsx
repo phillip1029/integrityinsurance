@@ -4,12 +4,13 @@ import { dictionary } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "人寿保险 | Integrity Insurance LLC",
-  description: "Integrity Insurance LLC 提供定期寿险、终身寿险和最终费用保险咨询。",
+  title: "Life Insurance | Integrity Insurance LLC",
+  description:
+    "Term life, whole life, and final expense insurance guidance from Integrity Insurance LLC.",
 };
 
-export default function ZhLifeInsurancePage() {
-  const locale = "zh";
+export default function LifeInsurancePage() {
+  const locale = "en";
   const t = dictionary[locale];
 
   return (

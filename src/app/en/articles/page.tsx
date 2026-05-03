@@ -5,12 +5,13 @@ import { getArticlesNewestFirst } from "@/content/articles";
 import { dictionary } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "文章 | Integrity Insurance LLC",
-  description: "Integrity Insurance LLC 的 Medicare 与 Marketplace 健康保险文章。",
+  title: "Articles | Integrity Insurance LLC",
+  description:
+    "Weekly Medicare and Marketplace health insurance articles from Integrity Insurance LLC.",
 };
 
-export default function ZhArticlesPage() {
-  const locale = "zh";
+export default function ArticlesPage() {
+  const locale = "en";
   const t = dictionary[locale];
   const articleList = getArticlesNewestFirst();
 

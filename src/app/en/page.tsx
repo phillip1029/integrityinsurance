@@ -8,11 +8,11 @@ import { dictionary, localePath } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Integrity Insurance LLC | Medicare 与 Marketplace 健康保险咨询",
+  title: "Integrity Insurance LLC | Medicare and Marketplace Guidance",
   description:
-    "Integrity Insurance LLC 提供 Medicare、Marketplace 健康保险和人寿保险咨询。",
+    "Integrity Insurance LLC helps clients compare Medicare, Marketplace health insurance, and life insurance options.",
   alternates: {
-    canonical: "/",
+    canonical: "/en",
     languages: {
       en: "/en",
       "zh-CN": "/",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const locale = "zh";
+  const locale = "en";
   const t = dictionary[locale];
   const featuredArticles = getFeaturedArticles();
 

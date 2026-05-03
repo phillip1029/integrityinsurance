@@ -4,12 +4,13 @@ import { dictionary } from "@/lib/i18n";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "联系 | Integrity Insurance LLC",
-  description: "联系 Integrity Insurance LLC 预约 Medicare 或 Marketplace 健康保险咨询。",
+  title: "Contact | Integrity Insurance LLC",
+  description:
+    "Contact Integrity Insurance LLC to schedule a free Medicare or Marketplace health insurance consultation.",
 };
 
-export default function ZhContactPage() {
-  const locale = "zh";
+export default function ContactPage() {
+  const locale = "en";
   const t = dictionary[locale];
 
   return (

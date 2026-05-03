@@ -9,10 +9,10 @@ export const localeLabels: Record<Locale, string> = {
 
 export function localePath(locale: Locale, path = "/") {
   const normalized = path.startsWith("/") ? path : `/${path}`;
-  if (locale === "en") {
+  if (locale === "zh") {
     return normalized;
   }
-  return normalized === "/" ? "/zh" : `/zh${normalized}`;
+  return normalized === "/" ? "/en" : `/en${normalized}`;
 }
 
 export function alternateLocalePath(locale: Locale, path = "/") {
@@ -22,7 +22,7 @@ export function alternateLocalePath(locale: Locale, path = "/") {
 export const dictionary = {
   en: {
     nav: {
-      medicare: "联邦医保",
+      medicare: "Medicare",
       marketplace: "Marketplace",
       articles: "Articles",
       contact: "Contact",

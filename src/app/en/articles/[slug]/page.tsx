@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
-  const content = getArticleContent(article, "zh");
+  const content = getArticleContent(article, "en");
 
   return {
     title: `${content.title} | Integrity Insurance LLC`,
@@ -34,8 +34,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function ZhArticlePage({ params }: Props) {
-  const locale = "zh";
+export default async function ArticlePage({ params }: Props) {
+  const locale = "en";
   const t = dictionary[locale];
   const { slug } = await params;
   const article = getArticle(slug);
@@ -56,7 +56,7 @@ export default async function ZhArticlePage({ params }: Props) {
         <div className="eyebrow-row">
           <span>{content.category}</span>
           <time dateTime={article.date}>
-            {new Intl.DateTimeFormat("zh-CN", {
+            {new Intl.DateTimeFormat("en", {
               month: "long",
               day: "numeric",
               year: "numeric",

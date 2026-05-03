@@ -3,12 +3,12 @@ import { PageShell } from "@/components/page-shell";
 import { dictionary } from "@/lib/i18n";
 
 export const metadata: Metadata = {
-  title: "隐私政策 | Integrity Insurance LLC",
-  description: "Integrity Insurance LLC 隐私政策。",
+  title: "Privacy Policy | Integrity Insurance LLC",
+  description: "Privacy policy for Integrity Insurance LLC.",
 };
 
-export default function ZhPrivacyPage() {
-  const locale = "zh";
+export default function PrivacyPage() {
+  const locale = "en";
   const t = dictionary[locale];
 
   return (

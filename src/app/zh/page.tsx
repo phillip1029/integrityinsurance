@@ -12,10 +12,10 @@ export const metadata: Metadata = {
   description:
     "Integrity Insurance LLC 提供 Medicare、Marketplace 健康保险和人寿保险咨询。",
   alternates: {
-    canonical: "/zh",
+    canonical: "/",
     languages: {
-      en: "/",
-      "zh-CN": "/zh",
+      en: "/en",
+      "zh-CN": "/",
     },
   },
 };
