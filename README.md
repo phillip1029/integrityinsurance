@@ -37,6 +37,27 @@ language: "zh"
 Markdown article body...
 ```
 
+### Admin upload publishing
+
+The site includes an unpublished admin URL at `/admin/articles/new`. The form
+uploads a `.md` file, writes frontmatter metadata, and commits the article to
+the GitHub repository under `articles/`. Vercel redeploys when the commit lands
+on the production branch.
+
+Configure these environment variables in Vercel:
+
+```bash
+ADMIN_PUBLISH_PASSWORD="choose-a-strong-password"
+GITHUB_TOKEN="github-fine-grained-token-with-contents-write"
+GITHUB_OWNER="phillip1029"
+GITHUB_REPO="integrityinsurance"
+GITHUB_BRANCH="main"
+```
+
+Use a GitHub fine-grained personal access token scoped only to this repository
+with **Contents: Read and write** permission. Do not commit the token or admin
+password to the repository.
+
 ## Deploy
 
 Connect this repository to Vercel and use the default Next.js build settings.

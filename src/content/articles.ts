@@ -28,6 +28,7 @@ type Frontmatter = Partial<{
   date: string;
   category: string;
   slug: string;
+  enTitle: string;
   newspaper: string;
   language: Locale;
 }>;
@@ -172,12 +173,13 @@ function readArticleFile(fileName: string): Article {
   const sourcePath = path.join(articlesDirectory, fileName);
   const raw = fs.readFileSync(sourcePath, "utf8");
   const { frontmatter, content } = parseMarkdownFile(raw);
-  const metadata = fileMetadata[fileName] ?? fallbackMetadata(fileName);
   const title = frontmatter.title ?? extractTitle(content);
+  const metadata = fileMetadata[fileName] ?? fallbackMetadata(fileName, title);
   const markdown = removeTitle(content, title);
   const category = normalizeCategory(frontmatter.category) ?? metadata.category;
   const date = frontmatter.date ?? metadata.date;
   const slug = frontmatter.slug ?? metadata.slug;
+  const enTitle = frontmatter.enTitle ?? metadata.enTitle;
   const zhDek = extractDescription(markdown);
   const zhReadTime = `约 ${estimateReadTime(markdown, "zh")} 分钟`;
   const enReadTime = `${estimateReadTime(markdown, "en")} min read`;
@@ -190,8 +192,8 @@ function readArticleFile(fileName: string): Article {
     sourcePath,
     translations: {
       en: {
-        title: metadata.enTitle,
-        dek: `A New World Times column about ${metadata.enTitle.toLowerCase()}.`,
+        title: enTitle,
+        dek: `A New World Times column about ${enTitle.toLowerCase()}.`,
         category: getLocalizedCategory(category, "en"),
         readTime: enReadTime,
         newspaper: "New World Times",
@@ -407,7 +409,7 @@ function getLocalizedCategory(category: ArticleCategory, locale: Locale) {
   return labels[locale][category];
 }
 
-function fallbackMetadata(fileName: string) {
+function fallbackMetadata(fileName: string, title: string) {
   const slug = fileName
     .replace(/\.md$/, "")
     .toLowerCase()
@@ -419,6 +421,6 @@ function fallbackMetadata(fileName: string) {
     slug,
     date: "2026-12-31",
     category: "Medicare" as const,
-    enTitle: extractTitle(fs.readFileSync(path.join(articlesDirectory, fileName), "utf8")),
+    enTitle: title,
   };
 }

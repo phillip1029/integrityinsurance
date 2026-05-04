@@ -455,6 +455,85 @@ h3 {
   margin-top: 18px;
 }
 
+.admin-section {
+  padding: clamp(44px, 7vw, 86px) clamp(20px, 5vw, 72px);
+}
+
+.admin-panel {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  margin: 0 auto;
+  max-width: 860px;
+  padding: clamp(24px, 4vw, 44px);
+}
+
+.admin-form {
+  display: grid;
+  gap: 20px;
+}
+
+.admin-form label {
+  color: var(--green-dark);
+  display: grid;
+  font-weight: 850;
+  gap: 8px;
+}
+
+.admin-form input,
+.admin-form select {
+  background: #fff;
+  border: 1px solid var(--line);
+  color: var(--foreground);
+  font: inherit;
+  min-height: 48px;
+  padding: 11px 12px;
+}
+
+.admin-form input[type="file"] {
+  padding: 10px;
+}
+
+.form-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.checkbox-row {
+  align-items: center;
+  color: var(--foreground);
+  display: flex;
+  gap: 10px;
+  line-height: 1.5;
+}
+
+.checkbox-row input {
+  min-height: auto;
+}
+
+.form-message {
+  border: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+  line-height: 1.55;
+  padding: 16px;
+}
+
+.form-message.success {
+  background: var(--surface-strong);
+}
+
+.form-message.error {
+  background: #fff1ed;
+  border-color: #e2b1a4;
+  color: #7c321f;
+}
+
+.form-message a {
+  color: var(--green);
+  font-weight: 850;
+}
+
 .cta-band {
   align-items: center;
   background: #253f5d;
@@ -666,7 +745,8 @@ h3 {
   }
 
   .service-grid,
-  .article-grid {
+  .article-grid,
+  .form-grid {
     grid-template-columns: 1fr;
   }
 }
