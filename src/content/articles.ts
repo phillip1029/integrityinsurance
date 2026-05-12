@@ -135,6 +135,12 @@ const fileMetadata: Record<
     category: "Planning",
     enTitle: "Is Health Insurance Expensive? A Conversation About Medical Cost Risk",
   },
+  "65岁离开雇主保险_Medicare申请步骤.md": {
+    slug: "leaving-employer-insurance-at-65-medicare-enrollment",
+    date: "2026-05-08",
+    category: "Medicare",
+    enTitle: "Leaving Employer Insurance at 65: Steps to Enroll in Federal Medicare",
+  },
 };
 
 export function getArticle(slug: string) {
