@@ -68,7 +68,19 @@ export default async function ArticlePage({ params }: Props) {
         <p className="article-dek">{content.dek}</p>
         {content.newspaper ? (
           <p className="source-note">
-            {t.common.originallyPreparedFor} {content.newspaper}
+            {t.common.originallyPreparedFor}{" "}
+            {content.newspaperUrl ? (
+              <a
+                href={content.newspaperUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-link"
+              >
+                {content.newspaper}
+              </a>
+            ) : (
+              content.newspaper
+            )}
           </p>
         ) : null}
         {content.markdown ? (
