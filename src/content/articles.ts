@@ -11,6 +11,7 @@ export type LocalizedArticleContent = {
   category: string;
   readTime: string;
   newspaper?: string;
+  newspaperUrl?: string;
   body: string[];
   markdown?: string;
 };
@@ -20,6 +21,7 @@ export type Article = {
   date: string;
   category: ArticleCategory;
   sourcePath: string;
+  newspaperUrl?: string;
   translations: Record<Locale, LocalizedArticleContent>;
 };
 
@@ -135,9 +137,15 @@ const fileMetadata: Record<
     category: "Planning",
     enTitle: "Is Health Insurance Expensive? A Conversation About Medical Cost Risk",
   },
+  "联邦医保系列2026 - 眼科保险.md": {
+    slug: "medicare-vision-coverage-2026",
+    date: "2026-05-08",
+    category: "Medicare",
+    enTitle: "Federal Medicare and Vision Insurance: Don't Let Your 2026 Vision Benefits Go to Waste",
+  },
   "65岁离开雇主保险_Medicare申请步骤.md": {
     slug: "leaving-employer-insurance-at-65-medicare-enrollment",
-    date: "2026-05-08",
+    date: "2026-05-15",
     category: "Medicare",
     enTitle: "Leaving Employer Insurance at 65: Steps to Enroll in Federal Medicare",
   },
@@ -190,12 +198,14 @@ function readArticleFile(fileName: string): Article {
   const zhReadTime = `约 ${estimateReadTime(markdown, "zh")} 分钟`;
   const enReadTime = `${estimateReadTime(markdown, "en")} min read`;
   const newspaper = frontmatter.newspaper ?? "《新世界时报》";
+  const newspaperUrl = getNewspaperUrl(date);
 
   return {
     slug,
     date,
     category,
     sourcePath,
+    newspaperUrl,
     translations: {
       en: {
         title: enTitle,
@@ -203,6 +213,7 @@ function readArticleFile(fileName: string): Article {
         category: getLocalizedCategory(category, "en"),
         readTime: enReadTime,
         newspaper: "New World Times",
+        newspaperUrl,
         body: [
           "This column was originally published in Simplified Chinese in New World Times. Use the Simplified Chinese version of this article for the full original text.",
         ],
@@ -213,6 +224,7 @@ function readArticleFile(fileName: string): Article {
         category: getLocalizedCategory(category, "zh"),
         readTime: zhReadTime,
         newspaper,
+        newspaperUrl,
         body: markdownToPlainParagraphs(markdown),
         markdown,
       },
@@ -413,6 +425,10 @@ function getLocalizedCategory(category: ArticleCategory, locale: Locale) {
   };
 
   return labels[locale][category];
+}
+
+function getNewspaperUrl(date: string) {
+  return `https://www.newworldtimes.us/newspaperfiles/${date.replace(/-/g, "")}/index.html`;
 }
 
 function fallbackMetadata(fileName: string, title: string) {
